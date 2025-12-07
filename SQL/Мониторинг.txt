@@ -1,0 +1,14 @@
+﻿-- текущие запросы в бд
+select
+    pid,
+    usename,
+    application_name,
+    now() - query_start AS duration,
+    state,
+    wait_event_type,
+    wait_event,
+    query
+FROM pg_stat_activity
+WHERE datname = databalse
+  AND state <> 'idle'
+ORDER BY duration DESC;
