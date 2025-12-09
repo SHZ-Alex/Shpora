@@ -28,3 +28,9 @@ ORDER BY
 SELECT datname, stats_reset
 FROM pg_stat_database
 WHERE datname = current_database();
+
+-- Последняя дата сброса статистики
+
+SELECT now() - stats_reset AS stats_age
+FROM pg_stat_database
+WHERE datname = current_database();
