@@ -1,0 +1,6 @@
+﻿-- db-1 - контейнер
+
+docker cp "C:\Users\Xarda\Downloads\Telegram Desktop\all_db_master_2026_02_12.gz" db-1:/tmp/backup.gz
+
+docker exec -i db-1 bash -lc "gunzip -c /tmp/backup.gz | psql -U postgres -d postgres"
+
